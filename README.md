@@ -17,7 +17,7 @@ Jorge Molina - System Administrator
 Deploy E-Commerce Application in ECS Container 
 
 
-## Step #1 Diagram the VPC Infrastructure and the CI/CD Pipeline
+## Step #1 Diagram the VPC Infrastructure and the CI/CD Pipeline (Sameen)
 
 ![Deployment Diagram](Images/Deployment_Pipeline.png)
 
