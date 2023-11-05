@@ -32,16 +32,16 @@ In order for the EC2 instance, where Jenkins is installed, to access the reposit
 [Generate GitHub Token](https://github.com/LamAnnieV/GitHub/blob/main/Generate_GitHub_Token.md)
 
 
+## Step # Python Script (Jorge)
 
-
-## Step # Docker
+## Step # Docker/Dockerfile  (Jorge)
 
 A Docker image is a template of an application with all the dependencies it needs to run. A docker file has all the components to build the Docker image.
 
 For this deployment, we need to create a [dockerfile](dockerfile) to build the image of the e-commerce application.  Please see the [GIT - docker file](Images/git.md) section to see how to test the dockerfile to see if it can build the image and if the image is deployable.
 
 
-## Step # Terraform
+## Step # Terraform (Sameen)
 
 Terraform is a tool that helps you create and manage your infrastructure. It allows you to define the desired state of your infrastructure in a configuration file, and then Terraform takes care of provisioning and managing the resources to match that configuration. This makes it easier to automate and scale your infrastructure and ensures that it remains consistent and predictable.
 
@@ -96,7 +96,7 @@ aws_alb_listener - what port is the application load balancer listening on
 
 ## Step # Jenkins
 
-**Jenkins**
+**Jenkins** (Annie)
 
 Jenkins automates the Build, Test, and Deploy the E-Commerce Application.  To use Jenkins in a new EC2, all the proper installs to use Jenkins and to read the programming language that the application is written in need to be installed. In this case, they are Jenkins, Java, and Jenkins' additional plugin "Pipeline Keep Running Step", which is manually installed through the GUI interface.
 
@@ -136,7 +136,9 @@ The application was launched with the DNS:
 
 ## Conclusion
 
+What is the application stack of this application?
 
+Is the backend an API server?
 
 
 ## Area(s) for Optimization:
