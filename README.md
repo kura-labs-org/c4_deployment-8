@@ -25,7 +25,7 @@ Deploy E-Commerce Application in ECS Container
 
 **Setup GitHub Repository for Jenkins Integration:**
 
-GitHub serves as the repository from which Jenkins retrieves files to build, test, and build the infrastructure for the e-commerce application and deploy the e-commerce application.  
+GitHub serves as the repository from which Jenkins retrieves files to build, test, and build the infrastructure for the e-commerce application and deploy the e-commerce application.  [GitHub Repository](https://github.com/LamAnnieV/group_deployment_8.git)
 
 In order for the EC2 instance, where Jenkins is installed, to access the repository, you need to generate a token from GitHub and then provide it to the EC2 instance.
 
