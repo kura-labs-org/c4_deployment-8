@@ -27,7 +27,7 @@ https://docs.aws.amazon.com/prescriptive-guidance/latest/load-balancer-stickines
 
 **Setup GitHub Repository for Jenkins Integration:**
 
-GitHub serves as the repository from which Jenkins retrieves files to build, test, and build the infrastructure for the banking application and deploy the banking application.  
+GitHub serves as the repository from which Jenkins retrieves files to build, test, and build the infrastructure for the e-commerce application and deploy the e-commerce application.  
 
 In order for the EC2 instance, where Jenkins is installed, to access the repository, you need to generate a token from GitHub and then provide it to the EC2 instance.
 
@@ -40,7 +40,7 @@ In order for the EC2 instance, where Jenkins is installed, to access the reposit
 
 A Docker image is a template of an application with all the dependencies it needs to run. A docker file has all the components to build the Docker image.
 
-For this deployment, we need to create a [dockerfile](dockerfile) to build the image of the banking application.  Please see the [GIT - docker file](Images/git.md) section to see how to test the dockerfile to see if it can build the image and if the image is deployable.
+For this deployment, we need to create a [dockerfile](dockerfile) to build the image of the e-commerce application.  Please see the [GIT - docker file](Images/git.md) section to see how to test the dockerfile to see if it can build the image and if the image is deployable.
 
 
 ## Step # Terraform
@@ -51,11 +51,11 @@ Terraform is a tool that helps you create and manage your infrastructure. It all
 
 Use Terraform to spin up the [Jenkins Agent Infrastructure](jenkinsTerraform/main.tf) to include the installs needed for the [Jenkins instance](jenkinsTerraform/installs1.sh), the install needed for the [Jenkins Docker agent instance](jenkinsTerraform/installs2.sh), and the install needed for the [Jenkins Terraform agent instance](jenkinsTerraform/installs3.sh).
 
-**Use Jenkins Terraform Agent to execute the Terraform scripts to create the Banking Application Infrastructure and Deploy the application on ECS with Application Load Balancer**
+**Use Jenkins Terraform Agent to execute the Terraform scripts to create the E-Commerce Application Infrastructure and Deploy the application on ECS with Application Load Balancer**
 
 #### E-Commerce Application Infrastructure
 
-Create the following [banking application infrastructure](intTerraform/vpc.tf):  
+Create the following [e-commerce application infrastructure](intTerraform/vpc.tf):  
 
 ```
 1 VPC
@@ -91,7 +91,7 @@ Create the following [Application Load Balancer](intTerraform/ALB.tf):
 
 ```
 aws_lb_target_group - defines the target group
-aws_alb" "bank_app - load balancer
+aws_alb" "e_commerce_app - load balancer
 aws_alb_listener - what port is the application load balancer listening on
 
 ```
@@ -100,7 +100,7 @@ aws_alb_listener - what port is the application load balancer listening on
 
 **Jenkins**
 
-Jenkins automates the Build, Test, and Deploy the Banking Application.  To use Jenkins in a new EC2, all the proper installs to use Jenkins and to read the programming language that the application is written in need to be installed. In this case, they are Jenkins, Java, and Jenkins' additional plugin "Pipeline Keep Running Step", which is manually installed through the GUI interface.
+Jenkins automates the Build, Test, and Deploy the E-Commerce Application.  To use Jenkins in a new EC2, all the proper installs to use Jenkins and to read the programming language that the application is written in need to be installed. In this case, they are Jenkins, Java, and Jenkins' additional plugin "Pipeline Keep Running Step", which is manually installed through the GUI interface.
 
 **Setup Jenkins and Jenkins nodes**
 
@@ -119,9 +119,9 @@ Instructions on how to install the [Pipleline Keep Running Step](https://github.
 Instructions on how to install the [Docker Pipeline](https://github.com/LamAnnieV/Jenkins/blob/main/Install_Docker_Pipeline_Plugin.md)
 
 
-## Step # Use Jenkins Terraform Agent to execute the Terraform scripts to create the Banking Application Infrastructure and Deploy the application on ECS with Application Load Balancer
+## Step # Use Jenkins Terraform Agent to execute the Terraform scripts to create the E-Commerce Application Infrastructure and Deploy the application on ECS with Application Load Balancer
 
-Jenkins Build:  In Jenkins create a build "deploy_7" to run the file Jenkinsfilev for the Banking application from GitHub Repository []() and run the build.  This build consists of the "Test", the "Docker Build", "Login and Push", (Terraform) "Init", (Terraform) "Plan", and (Terraform) "Apply" stages.  
+Jenkins Build:  In Jenkins create a build "deploy_7" to run the file Jenkinsfilev for the E-Commerce application from GitHub Repository []() and run the build.  This build consists of the "Test", the "Docker Build", "Login and Push", (Terraform) "Init", (Terraform) "Plan", and (Terraform) "Apply" stages.  
 
 **Results:**
 
