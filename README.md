@@ -17,11 +17,11 @@ Jorge Molina - System Administrator
 Deploy E-Commerce Application in ECS Container 
 
 
-## Step #1 Diagram the VPC Infrastructure and the CI/CD Pipeline (Sameen)
+## Step #1 Diagram the VPC Infrastructure and the CI/CD Pipeline (Sameen/Annie)
 
 ![Deployment Diagram](Images/Deployment_Pipeline.png)
 
-## Step #2 GitHub/Git
+## Step #2 GitHub/Git (Annie)
 
 **Setup GitHub Repository for Jenkins Integration:**
 
@@ -40,6 +40,9 @@ A Docker image is a template of an application with all the dependencies it need
 
 For this deployment, we need to create a [dockerfile](dockerfile) to build the image of the e-commerce application.  Please see the [GIT - docker file](Images/git.md) section to see how to test the dockerfile to see if it can build the image and if the image is deployable.
 
+## Step # Jenkinsfilev1  (All; Lead - Annie)
+
+## Step # Jenkinsfilev2  (All; Lead - Annie)
 
 ## Step # Terraform (Sameen)
 
@@ -94,9 +97,9 @@ aws_alb_listener - what port is the application load balancer listening on
 
 ```
 
-## Step # Jenkins
+## Step # Jenkins (All:  Lead?)
 
-**Jenkins** (Annie)
+**Jenkins** 
 
 Jenkins automates the Build, Test, and Deploy the E-Commerce Application.  To use Jenkins in a new EC2, all the proper installs to use Jenkins and to read the programming language that the application is written in need to be installed. In this case, they are Jenkins, Java, and Jenkins' additional plugin "Pipeline Keep Running Step", which is manually installed through the GUI interface.
 
@@ -117,7 +120,7 @@ Instructions on how to install the [Pipleline Keep Running Step](https://github.
 Instructions on how to install the [Docker Pipeline](https://github.com/LamAnnieV/Jenkins/blob/main/Install_Docker_Pipeline_Plugin.md)
 
 
-## Step # Use Jenkins Terraform Agent to execute the Terraform scripts to create the E-Commerce Application Infrastructure and Deploy the application on ECS with Application Load Balancer
+## Step # Use Jenkins Terraform Agent to execute the Terraform scripts to create the E-Commerce Application Infrastructure and Deploy the application on ECS with Application Load Balancer (All; Lead: ?)
 
 Jenkins Build:  In Jenkins create a build "deploy_7" to run the file Jenkinsfilev for the E-Commerce application from GitHub Repository []() and run the build.  This build consists of the "Test", the "Docker Build", "Login and Push", (Terraform) "Init", (Terraform) "Plan", and (Terraform) "Apply" stages.  
 
@@ -130,18 +133,18 @@ The application was launched with the DNS:
 
 ![Images](Images/Launched_website.png)
 
-## Issue(s)
+## Issue(s) (All)
 
 1.  
 
-## Conclusion
+## Conclusion (All)
 
 What is the application stack of this application?
 
 Is the backend an API server?
 
 
-## Area(s) for Optimization:
+## Area(s) for Optimization (All)
 
 
 
