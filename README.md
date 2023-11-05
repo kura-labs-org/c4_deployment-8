@@ -17,7 +17,7 @@ Jorge Molina - System Administrator
 Deploy E-Commerce Application in ECS Container 
 
 
-## Step #1 Diagram the VPC Infrastructure and the CI/CD Pipeline (Sameen/Annie)
+## Step #1 Diagram the VPC Infrastructure and the CI/CD Pipeline (Sameen)
 
 ![Deployment Diagram](Images/Deployment_Pipeline.png)
 
@@ -31,7 +31,6 @@ In order for the EC2 instance, where Jenkins is installed, to access the reposit
 
 [Generate GitHub Token](https://github.com/LamAnnieV/GitHub/blob/main/Generate_GitHub_Token.md)
 
-
 ## Step # Python Script (Jorge)
 
 ## Step # Docker/Dockerfile  (Jorge)
@@ -40,21 +39,21 @@ A Docker image is a template of an application with all the dependencies it need
 
 For this deployment, we need to create a [dockerfile](dockerfile) to build the image of the e-commerce application.  Please see the [GIT - docker file](Images/git.md) section to see how to test the dockerfile to see if it can build the image and if the image is deployable.
 
-## Step # Jenkinsfilev1  (All; Lead - Annie)
+## Step # Jenkinsfilev1  (All)
 
-## Step # Jenkinsfilev2  (All; Lead - Annie)
+## Step # Jenkinsfilev2  (All)
 
 ## Step # Terraform (Sameen)
 
 Terraform is a tool that helps you create and manage your infrastructure. It allows you to define the desired state of your infrastructure in a configuration file, and then Terraform takes care of provisioning and managing the resources to match that configuration. This makes it easier to automate and scale your infrastructure and ensures that it remains consistent and predictable.
 
-### Jenkins Agent Infrastructure
+### Jenkins Agent Infrastructure (Sameen)
 
 Use Terraform to spin up the [Jenkins Agent Infrastructure](jenkinsTerraform/main.tf) to include the installs needed for the [Jenkins instance](jenkinsTerraform/installs1.sh), the install needed for the [Jenkins Docker agent instance](jenkinsTerraform/installs2.sh), and the install needed for the [Jenkins Terraform agent instance](jenkinsTerraform/installs3.sh).
 
 **Use Jenkins Terraform Agent to execute the Terraform scripts to create the E-Commerce Application Infrastructure and Deploy the application on ECS with Application Load Balancer**
 
-#### E-Commerce Application Infrastructure
+#### E-Commerce Application Infrastructure (Semeen)
 
 Create the following [e-commerce application infrastructure](intTerraform/vpc.tf):  
 
@@ -69,7 +68,7 @@ Security Group Ports: 8000, 3000, 80
 1 ALB
 ```
 
-#### Elastic Container Service (ECS)
+#### Elastic Container Service (ECS) (Sameen)
 
 Amazon Elastic Container Service (ECS) is a managed container orchestration service.  It is designed to simplify the deployment, management, and scaling of containerized applications using containers. The primary purpose of ECS with Docker images is to make it easier to run and manage containers in a scalable and reliable manner.
 
@@ -84,7 +83,7 @@ aws_ecs_task_definition - describes the container
 aws_ecs_service - is a fully managed opinionated container orchestration service that delivers the easiest way for organizations to build, deploy, and manage containerized applications at any scale on AWS
 ```
 
-#### Application Load Balancer (ALB)
+#### Application Load Balancer (ALB) (Sameen)
 
 The purpose of an Application Load Balancer (ALB) is to evenly distribute incoming web traffic to multiple servers or instances to ensure that the application remains available, responsive, and efficient. It directs traffic to different servers to prevent overload on any single server. If one server is down, it can redirect traffic to the servers that are still up and running.  This helps improve the performance, availability, and reliability of web applications, making sure users can access them without interruption, even if some servers have issues.
 
@@ -97,7 +96,7 @@ aws_alb_listener - what port is the application load balancer listening on
 
 ```
 
-## Step # Jenkins (All:  Lead?)
+## Step # Jenkins (?)
 
 **Jenkins** 
 
