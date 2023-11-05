@@ -21,8 +21,6 @@ Deploy E-Commerce Application in ECS Container
 
 ![Deployment Diagram](Images/Deployment_Pipeline.png)
 
-https://docs.aws.amazon.com/prescriptive-guidance/latest/load-balancer-stickiness/subnets-routing.html
-
 ## Step #2 GitHub/Git
 
 **Setup GitHub Repository for Jenkins Integration:**
