@@ -120,7 +120,7 @@ Instructions on how to install the [Pipleline Keep Running Step](https://github.
 Instructions on how to install the [Docker Pipeline](https://github.com/LamAnnieV/Jenkins/blob/main/Install_Docker_Pipeline_Plugin.md)
 
 
-## Step # Use Jenkins Terraform Agent to execute the Terraform scripts to create the E-Commerce Application Infrastructure and Deploy the application on ECS with Application Load Balancer (All; Lead: ?)
+### Use Jenkins Terraform Agent to execute the Terraform scripts to create the E-Commerce Application Infrastructure and Deploy the application on ECS with Application Load Balancer (All; Lead: ?)
 
 Jenkins Build:  In Jenkins create a build "deploy_7" to run the file Jenkinsfilev for the E-Commerce application from GitHub Repository []() and run the build.  This build consists of the "Test", the "Docker Build", "Login and Push", (Terraform) "Init", (Terraform) "Plan", and (Terraform) "Apply" stages.  
 
