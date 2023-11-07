@@ -16,12 +16,13 @@ Jorge Molina - System Administrator
 
 Deploy E-Commerce Application in ECS Container 
 
+## Step  AWS Setup (Jorge)
 
-## Step #1 Diagram the VPC Infrastructure and the CI/CD Pipeline (Sameen)
+## Step  Diagram the VPC Infrastructure and the CI/CD Pipeline (Sameen)
 
 ![Deployment Diagram](Images/Deployment_Pipeline.png)
 
-## Step #2 GitHub/Git (Annie)
+## Step 2 GitHub/Git (Annie)
 
 **Setup GitHub Repository for Jenkins Integration:**
 
@@ -98,7 +99,7 @@ aws_alb_listener - what port is the application load balancer listening on
 
 ```
 
-## Step # Jenkins (?)
+## Step # Jenkins (Sameen)
 
 **Jenkins** 
 
