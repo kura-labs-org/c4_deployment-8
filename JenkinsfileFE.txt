@@ -1,0 +1,50 @@
+pipeline {
+  agent {label 'awsDeploy2'}
+  environment{
+      DOCKERHUB_CREDENTIALS = credentials('jmo10-dockerhub')
+      }
+   stages {
+     
+    stage ('Test') {
+      steps {
+        sh '''#!/bin/bash
+        python3.9 -m venv test
+        source test/bin/activate
+        pip install pip --upgrade
+        pip install -r requirements.txt
+        pip install mysqlclient
+        pip install pytest
+        py.test --verbose --junit-xml test-reports/results.xml
+        '''
+     }
+
+       post{
+        always {
+          junit 'test-reports/results.xml'
+        }
+       
+      }
+   }
+     
+    stage ('Build') {
+      steps {
+          sh 'docker build -t jmo10/ecommfe .'
+    }
+}
+     stage ('Login') {
+        steps {
+          sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+      }
+}
+
+     stage ('Push') {
+        steps {
+            sh 'docker push jmo10/ecommfe'
+  }
+     }
+
+
+     
+
+  }
+}
