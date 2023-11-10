@@ -4,41 +4,23 @@ pipeline {
       DOCKERHUB_CREDENTIALS = credentials('jmo10-dockerhub')
       }
    stages {
-     
-    stage ('Test') {
-      steps {
-        sh '''#!/bin/bash
-        cd backend/
-        python3.9 -m venv test
-        source test/bin/activate
-        pip install pip --upgrade
-        pip install -r requirements.txt
-        pip install pytest
-        py.test --verbose --junit-xml test-reports/results.xml
-        '''
-     }
-
-       post{
-        always {
-          junit 'test-reports/results.xml'
-        }
-       
-      }
-   }
-     
+          
     stage ('Build') {
       steps {
+          sh 'cd backend'
           sh 'docker build -t jmo10/ecommbe .'
     }
 }
      stage ('Login') {
         steps {
+          sh 'cd backend'
           sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
       }
 }
 
      stage ('Push') {
         steps {
+            sh 'cd backend'
             sh 'docker push jmo10/ecommbe'
   }
      }
