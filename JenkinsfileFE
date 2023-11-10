@@ -28,7 +28,7 @@ pipeline {
      
     stage ('Build') {
       steps {
-          sh 'docker build -t jmo10/ecommfe .'
+          sh 'docker build -f be.Dockerfile -t jmo10/ecommbe .'
     }
 }
      stage ('Login') {
