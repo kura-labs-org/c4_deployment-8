@@ -28,8 +28,8 @@ resource "aws_ecs_task_definition" "aws-ecs-task" {
   container_definitions = <<EOF
   [
   {
-      "name": "ecom-containerF",
-      "image": "jmo10/ecommfe",
+      "name": "ecom-containerbe",
+      "image": "jmo10/ecommbe",
       "logConfiguration": {
         "logDriver": "awslogs",
         "options": {
@@ -64,7 +64,7 @@ resource "aws_ecs_service" "aws-ecs-service" {
   task_definition      = aws_ecs_task_definition.aws-ecs-task.arn
   launch_type          = "FARGATE"
   scheduling_strategy  = "REPLICA"
-  desired_count        = 2
+  desired_count        = 1
   force_new_deployment = true
 
   network_configuration {
@@ -78,7 +78,7 @@ resource "aws_ecs_service" "aws-ecs-service" {
 
   load_balancer {
     target_group_arn = aws_lb_target_group.ecom-app.arn
-    container_name   = "ecom-containerF"
+    container_name   = "ecom-containerbe"
     container_port   = 3000
   }
 
