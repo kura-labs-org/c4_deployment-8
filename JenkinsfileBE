@@ -6,7 +6,7 @@ pipeline {
     stage ('Build') {
       agent {label 'awsDeploy2'}
       steps {
-          sh 'docker build -t jmo10/ecommbe .'
+          sh 'docker build -f be.Dockerfile -t jmo10/ecommbe .'
     }
 }
 
