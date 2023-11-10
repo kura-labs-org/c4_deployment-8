@@ -5,44 +5,22 @@ pipeline {
       }
    stages {
      
-    stage ('Test') {
-      steps {
-        sh '''#!/bin/bash
-        python3.9 -m venv test
-        source test/bin/activate
-        pip install pip --upgrade
-        pip install -r requirements.txt
-        pip install mysqlclient
-        pip install pytest
-        py.test --verbose --junit-xml test-reports/results.xml
-        '''
-     }
 
-       post{
-        always {
-          junit 'test-reports/results.xml'
-        }
-       
-      }
-   }
-     
     stage ('Build') {
+      agent {label 'awsDeploy2'}
       steps {
-          sh 'docker build -f be.Dockerfile -t jmo10/ecommbe .'
+          sh 'docker build -f fe.Dockerfile -t jmo10/ecommfe .'
     }
 }
-     stage ('Login') {
+     stage('Login and Push') {
+      agent {label 'awsDeploy2'}
         steps {
-          sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+          withCredentials([usernamePassword(credentialsId: 'jmo10-dockerhub', usernameVariable: 'DOCKERHUB_CREDENTIALS_USR', passwordVariable: 'DOCKERHUB_CREDENTIALS_PSW')]) {
+              sh "echo \$DOCKERHUB_CREDENTIALS_PSW | docker login -u \$DOCKERHUB_CREDENTIALS_USR --password-stdin"
+              sh 'docker push jmo10/ecommbe'
+              }
+          }
       }
-}
-
-     stage ('Push') {
-        steps {
-            sh 'docker push jmo10/ecommfe'
-  }
-     }
-
 
      
 
